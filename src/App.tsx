@@ -1,5 +1,11 @@
+import AspectRatio from "./features/AspectRatio"
+
 function App() {
-  return <div>Hello Calc</div>
+  return (
+    <div>
+      <AspectRatio />
+    </div>
+  )
 }
 
 export default App
