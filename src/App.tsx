@@ -1,11 +1,7 @@
-import AspectRatio from "./features/AspectRatio"
+import Layout from "./components/Layout";
 
 function App() {
-  return (
-    <div>
-      <AspectRatio />
-    </div>
-  )
+  return <Layout />;
 }
 
-export default App
+export default App;
