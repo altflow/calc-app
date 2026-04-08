@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AspectRatio from '../../features/AspectRatio';
+import CostPerYear from '../../features/CostPerYear';
 import styles from './Layout.module.css';
 
 type MenuItem = {
@@ -10,7 +11,7 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
   { id: 'aspectRatio', label: 'Aspect Ratio', component: AspectRatio },
-  { id: 'costPerYear', label: 'Cost Per Year', component: () => <div>Cost Per Year Component Coming Soon</div> },
+  { id: 'costPerYear', label: 'Cost Per Year', component: CostPerYear },
   { id: 'networkAddress', label: 'Network Address', component: () => <div>Network Address Component Coming Soon</div> },
   { id: 'packetsToBytes', label: 'Packets to Bytes', component: () => <div>Packets to Bytes Component Coming Soon</div> },
   { id: 'pixelPerInch', label: 'Pixel Per Inch', component: () => <div>Pixel Per Inch Component Coming Soon</div> },
