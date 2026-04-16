@@ -3,6 +3,7 @@ import AspectRatio from '../../features/AspectRatio';
 import CostPerYear from '../../features/CostPerYear';
 import NetworkAddress from '../../features/NetworkAddress';
 import PacketsToBytes from '../../features/PacketsToBytes';
+import PixelPerInch from '../../features/PixelPerInch';
 import styles from './Layout.module.css';
 
 type MenuItem = {
@@ -16,7 +17,7 @@ const menuItems: MenuItem[] = [
   { id: 'costPerYear', label: 'Cost Per Year', component: CostPerYear },
   { id: 'networkAddress', label: 'Network Address', component: NetworkAddress },
   { id: 'packetsToBytes', label: 'Packets to Bytes', component: PacketsToBytes },
-  { id: 'pixelPerInch', label: 'Pixel Per Inch', component: () => <div>Pixel Per Inch Component Coming Soon</div> },
+  { id: 'pixelPerInch', label: 'Pixel Per Inch', component: PixelPerInch },
 ];
 
 const Layout: React.FC = () => {
