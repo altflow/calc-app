@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent, type Dispatch, type SetStateAction } from "react"
 import { calculateAspectRatioValues, type AspectRatioField } from "./calc"
+import styles from "../../components/Form/Form.module.css"
 
 const parseNumber = (value: string): number | null => {
   const parsed = Number(value)
@@ -71,45 +72,42 @@ const AspectRatio = () => {
 
   return (
     <div>
-      <div>
-        <label>
-          ratioW
-          <input
-            type="text"
-            value={values.ratioW}
-            onChange={makeChangeHandler("ratioW", values, setValues)}
-          />
-        </label>
+      <h2 className={styles.title}>Aspect Ratio Calculator</h2>
+      <div className={styles.field}>
+        <label className={styles.label}>ratioW</label>
+        <input
+          className={styles.input}
+          type="text"
+          value={values.ratioW}
+          onChange={makeChangeHandler("ratioW", values, setValues)}
+        />
       </div>
-      <div>
-        <label>
-          ratioH
-          <input
-            type="text"
-            value={values.ratioH}
-            onChange={makeChangeHandler("ratioH", values, setValues)}
-          />
-        </label>
+      <div className={styles.field}>
+        <label className={styles.label}>ratioH</label>
+        <input
+          className={styles.input}
+          type="text"
+          value={values.ratioH}
+          onChange={makeChangeHandler("ratioH", values, setValues)}
+        />
       </div>
-      <div>
-        <label>
-          pxWidth
-          <input
-            type="text"
-            value={values.pxWidth}
-            onChange={makeChangeHandler("pxWidth", values, setValues)}
-          />
-        </label>
+      <div className={styles.field}>
+        <label className={styles.label}>pxWidth</label>
+        <input
+          className={styles.input}
+          type="text"
+          value={values.pxWidth}
+          onChange={makeChangeHandler("pxWidth", values, setValues)}
+        />
       </div>
-      <div>
-        <label>
-          pxHeight
-          <input
-            type="text"
-            value={values.pxHeight}
-            onChange={makeChangeHandler("pxHeight", values, setValues)}
-          />
-        </label>
+      <div className={styles.field}>
+        <label className={styles.label}>pxHeight</label>
+        <input
+          className={styles.input}
+          type="text"
+          value={values.pxHeight}
+          onChange={makeChangeHandler("pxHeight", values, setValues)}
+        />
       </div>
     </div>
   )

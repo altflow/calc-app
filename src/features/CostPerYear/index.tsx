@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { calculateCosts, type CostBreakdown } from './calc'
+import styles from "../../components/Form/Form.module.css"
 
 const CostPerYear = () => {
   const [amount, setAmount] = useState<string>('100')
@@ -14,34 +15,27 @@ const CostPerYear = () => {
   }, [amount, period])
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Cost Per Year Calculator</h2>
+    <div>
+      <h2 className={styles.title}>Cost Per Year Calculator</h2>
 
-      <div style={{ marginBottom: '20px' }}>
-        <label htmlFor="amount" style={{ display: 'block', marginBottom: '8px' }}>
+      <div className={styles.field}>
+        <label className={styles.label} htmlFor="amount">
           金額:
         </label>
         <input
           id="amount"
+          className={styles.input}
           type="text"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="金額を入力"
-          style={{
-            padding: '8px',
-            fontSize: '16px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            width: '100%',
-            maxWidth: '300px',
-          }}
         />
       </div>
 
-      <div style={{ marginBottom: '20px' }}>
-        <p style={{ marginBottom: '8px' }}>期間の単位:</p>
+      <div className={styles.field}>
+        <p className={styles.label}>期間の単位:</p>
         {(['day', 'month', 'year'] as const).map((p) => (
-          <label key={p} style={{ display: 'block', marginBottom: '8px' }}>
+          <label key={p} className={styles.label}>
             <input
               type="radio"
               name="period"
@@ -55,11 +49,11 @@ const CostPerYear = () => {
       </div>
 
       {result && (
-        <div style={{ marginTop: '20px', padding: '16px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
+        <div className={styles.result}>
           <h3>計算結果:</h3>
-          <p>年間コスト: {result.annual.toFixed(2)}</p>
-          <p>月間コスト: {result.monthly.toFixed(2)}</p>
-          <p>日ごとのコスト: {result.daily.toFixed(2)}</p>
+          <div className={styles.resultItem}>年間コスト: {result.annual.toFixed(2)}</div>
+          <div className={styles.resultItem}>月間コスト: {result.monthly.toFixed(2)}</div>
+          <div className={styles.resultItem}>日ごとのコスト: {result.daily.toFixed(2)}</div>
         </div>
       )}
     </div>

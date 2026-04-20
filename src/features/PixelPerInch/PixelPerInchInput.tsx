@@ -1,4 +1,5 @@
 import { type ChangeEvent } from 'react'
+import styles from "../../components/Form/Form.module.css"
 
 interface PixelPerInchInputProps {
   id: string
@@ -15,24 +16,17 @@ export const PixelPerInchInput = ({
   onChange,
   placeholder,
 }: PixelPerInchInputProps) => (
-  <div style={{ marginBottom: '16px' }}>
-    <label htmlFor={id} style={{ display: 'block', marginBottom: '8px' }}>
+  <div className={styles.field}>
+    <label className={styles.label} htmlFor={id}>
       {label}
     </label>
     <input
       id={id}
+      className={styles.input}
       type="text"
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      style={{
-        width: '100%',
-        maxWidth: '280px',
-        padding: '8px',
-        borderRadius: '4px',
-        border: '1px solid #ccc',
-        fontSize: '16px',
-      }}
     />
   </div>
 )

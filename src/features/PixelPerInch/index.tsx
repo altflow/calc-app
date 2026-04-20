@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { calculatePixelPerInch } from './calc'
 import { PixelPerInchInput } from './PixelPerInchInput'
+import styles from "../../components/Form/Form.module.css"
 
 const PixelPerInch = () => {
   const [inches, setInches] = useState('13.3')
@@ -24,8 +25,8 @@ const PixelPerInch = () => {
   }, [inches, pxWidth, pxHeight])
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Pixel Per Inch (PPI) Calculator</h2>
+    <div>
+      <h2 className={styles.title}>Pixel Per Inch (PPI) Calculator</h2>
 
       <PixelPerInchInput
         id="inches"
@@ -50,14 +51,14 @@ const PixelPerInch = () => {
       />
 
       {ppi !== null ? (
-        <div style={{ marginTop: '24px', padding: '16px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
+        <div className={styles.result}>
           <h3>計算結果</h3>
-          <p>PPI: {ppi.toFixed(3)}</p>
+          <div className={styles.resultItem}>PPI: {ppi.toFixed(3)}</div>
         </div>
       ) : (
-        <p style={{ marginTop: '24px', color: '#b00020' }}>
+        <div className={styles.error}>
           有効な数値をすべて入力してください。
-        </p>
+        </div>
       )}
     </div>
   )

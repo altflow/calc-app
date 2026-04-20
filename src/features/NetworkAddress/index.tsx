@@ -1,5 +1,6 @@
 import React, { useMemo, useState, type ChangeEvent } from 'react'
 import { calculateNetworkInfo, parseIpAndMask, validateIpAndMask } from './calc'
+import styles from "../../components/Form/Form.module.css"
 
 const NetworkAddress: React.FC = () => {
   const [cidr, setCidr] = useState('192.168.1.0/24')
@@ -20,42 +21,35 @@ const NetworkAddress: React.FC = () => {
   }, [isValid, parsed])
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Network Address Calculator</h2>
+    <div>
+      <h2 className={styles.title}>Network Address Calculator</h2>
 
-      <div style={{ marginBottom: '16px' }}>
-        <label htmlFor="network-input" style={{ display: 'block', marginBottom: '8px' }}>
+      <div className={styles.field}>
+        <label className={styles.label} htmlFor="network-input">
           Network address (IP Address/Subnet mask)
         </label>
         <input
           id="network-input"
+          className={styles.input}
           type="text"
           value={cidr}
           onChange={(event: ChangeEvent<HTMLInputElement>) => setCidr(event.target.value)}
           placeholder="192.168.1.0/24"
-          style={{
-            width: '100%',
-            maxWidth: '320px',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            fontSize: '16px',
-          }}
         />
       </div>
 
       {isValid && result ? (
-        <div style={{ padding: '16px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
+        <div className={styles.result}>
           <h3>計算結果</h3>
-          <p>Network Address: {result.networkAddress}</p>
-          <p>Broadcast Address: {result.broadcastAddress}</p>
-          <p>Number of IPs: {result.numberOfIPs}</p>
-          <p>Subnet Mask: {result.subnetMask}</p>
+          <div className={styles.resultItem}>Network Address: {result.networkAddress}</div>
+          <div className={styles.resultItem}>Broadcast Address: {result.broadcastAddress}</div>
+          <div className={styles.resultItem}>Number of IPs: {result.numberOfIPs}</div>
+          <div className={styles.resultItem}>Subnet Mask: {result.subnetMask}</div>
         </div>
       ) : cidr.trim() ? (
-        <p style={{ color: '#b00020' }}>
+        <div className={styles.error}>
           有効な IP アドレスとサブネットマスクを「192.168.1.0/24」の形式で入力してください。
-        </p>
+        </div>
       ) : null}
     </div>
   )

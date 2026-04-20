@@ -1,5 +1,6 @@
 import { useMemo, useState, type ChangeEvent } from 'react'
 import { convertPacketsToBytes } from './calc'
+import styles from "../../components/Form/Form.module.css"
 
 const parseNumber = (value: string): number | null => {
   const parsed = Number(value)
@@ -31,46 +32,32 @@ const PacketsToBytes = () => {
   }, [parsedValue, unit])
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Packets to Bytes Converter</h2>
+    <div>
+      <h2 className={styles.title}>Packets to Bytes Converter</h2>
 
-      <div style={{ marginBottom: '20px' }}>
-        <label htmlFor="packet-input" style={{ display: 'block', marginBottom: '8px' }}>
+      <div className={styles.field}>
+        <label className={styles.label} htmlFor="packet-input">
           値を入力してください
         </label>
         <input
           id="packet-input"
+          className={styles.input}
           type="text"
           value={value}
           onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
           placeholder="数値を入力"
-          style={{
-            width: '100%',
-            maxWidth: '320px',
-            padding: '8px',
-            fontSize: '16px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-          }}
         />
       </div>
 
-      <div style={{ marginBottom: '20px' }}>
-        <label htmlFor="unit-select" style={{ display: 'block', marginBottom: '8px' }}>
+      <div className={styles.field}>
+        <label className={styles.label} htmlFor="unit-select">
           単位を選択
         </label>
         <select
           id="unit-select"
+          className={styles.input}
           value={unit}
           onChange={(event: ChangeEvent<HTMLSelectElement>) => setUnit(event.target.value as PacketUnit)}
-          style={{
-            width: '100%',
-            maxWidth: '200px',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            fontSize: '16px',
-          }}
         >
           {units.map((option) => (
             <option key={option} value={option}>
@@ -81,15 +68,15 @@ const PacketsToBytes = () => {
       </div>
 
       {parsedValue === null ? (
-        <p style={{ color: '#b00020' }}>有効な数値を入力してください。</p>
+        <div className={styles.error}>有効な数値を入力してください。</div>
       ) : (
         result && (
-          <div style={{ padding: '16px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
+          <div className={styles.result}>
             <h3>変換結果</h3>
-            <p>Packets: {result.packets}</p>
-            <p>Bytes: {result.bytes}</p>
-            <p>KB: {result.KB}</p>
-            <p>MB: {result.MB}</p>
+            <div className={styles.resultItem}>Packets: {result.packets}</div>
+            <div className={styles.resultItem}>Bytes: {result.bytes}</div>
+            <div className={styles.resultItem}>KB: {result.KB}</div>
+            <div className={styles.resultItem}>MB: {result.MB}</div>
           </div>
         )
       )}
