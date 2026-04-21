@@ -12,6 +12,11 @@
   border-right: 1px solid var(--color-border);
 }
 
+.menuTitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
 .menuItem {
   padding: var(--spacing-md);
   cursor: pointer;
@@ -36,7 +41,7 @@
 .hamburger {
   display: none;
   position: fixed;
-  top: var(--spacing-md);
+  top: 10px;
   left: var(--spacing-md);
   z-index: 1000;
   background-color: var(--color-accent);
@@ -44,6 +49,10 @@
   border: none;
   padding: var(--spacing-md);
   cursor: pointer;
+}
+
+.hamburger.hidden {
+  display: none;
 }
 
 .sidebar.mobileOpen {
@@ -67,5 +76,9 @@
 
   .sidebar.mobileOpen {
     display: block;
+  }
+
+  .content {
+    padding-top: 80px;
   }
 }

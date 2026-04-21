@@ -37,11 +37,11 @@ const Layout: React.FC = () => {
 
   return (
     <div className={styles.layout}>
-      <button className={styles.hamburger} onClick={toggleSidebar}>
+      <button className={`${styles.hamburger} ${isSidebarOpen ? styles.hidden : ''}`} onClick={toggleSidebar}>
         ☰
       </button>
       <div className={`${styles.sidebar} ${isSidebarOpen ? styles.mobileOpen : ''}`}>
-        <h2>Menu</h2>
+        <h2 className={styles.menuTitle}>Menu</h2>
         <ul>
           {menuItems.map(item => (
             <li
@@ -54,7 +54,7 @@ const Layout: React.FC = () => {
           ))}
         </ul>
       </div>
-      <div className={styles.content}>
+      <div className={styles.content} onClick={() => setIsSidebarOpen(false)}>
         {selectedComponent && React.createElement(selectedComponent)}
       </div>
     </div>
