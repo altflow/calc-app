@@ -30,7 +30,7 @@ const Layout: React.FC = () => {
 
   const handleMenuClick = (id: string) => {
     setSelectedMenu(id);
-    setIsSidebarOpen(false); // スマホでメニュー選択後に閉じる
+    setIsSidebarOpen(false);
   };
 
   const selectedComponent = menuItems.find(item => item.id === selectedMenu)?.component;

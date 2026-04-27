@@ -37,7 +37,7 @@ const PacketsToBytes = () => {
 
       <div className={styles.field}>
         <label className={styles.label} htmlFor="packet-input">
-          値を入力してください
+          Input Value
         </label>
         <input
           id="packet-input"
@@ -45,13 +45,13 @@ const PacketsToBytes = () => {
           type="text"
           value={value}
           onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
-          placeholder="数値を入力"
+          placeholder="Enter value"
         />
       </div>
 
       <div className={styles.field}>
         <label className={styles.label} htmlFor="unit-select">
-          単位を選択
+          Select Unit
         </label>
         <select
           id="unit-select"
@@ -68,11 +68,11 @@ const PacketsToBytes = () => {
       </div>
 
       {parsedValue === null ? (
-        <div className={styles.error}>有効な数値を入力してください。</div>
+        <div className={styles.error}>Please enter a valid number.</div>
       ) : (
         result && (
           <div className={styles.result}>
-            <h3>変換結果</h3>
+            <h3>Conversion Result</h3>
             <div className={styles.resultItem}>Packets: {result.packets}</div>
             <div className={styles.resultItem}>Bytes: {result.bytes}</div>
             <div className={styles.resultItem}>KB: {result.KB}</div>

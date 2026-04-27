@@ -20,7 +20,7 @@ const CostPerYear = () => {
 
       <div className={styles.field}>
         <label className={styles.label} htmlFor="amount">
-          金額:
+          Cost:
         </label>
         <input
           id="amount"
@@ -28,12 +28,12 @@ const CostPerYear = () => {
           type="text"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          placeholder="金額を入力"
+          placeholder="Enter amount"
         />
       </div>
 
       <div className={styles.field}>
-        <p className={styles.label}>期間の単位:</p>
+        <p className={styles.label}>Period:</p>
         {(['day', 'month', 'year'] as const).map((p) => (
           <label key={p} className={styles.label}>
             <input
@@ -43,17 +43,17 @@ const CostPerYear = () => {
               checked={period === p}
               onChange={(e) => setPeriod(e.target.value as 'day' | 'month' | 'year')}
             />
-            {p === 'day' ? '日あたり' : p === 'month' ? '月あたり' : '年あたり'}
+            {p === 'day' ? 'Daily' : p === 'month' ? 'Monthly' : 'Yearly'}
           </label>
         ))}
       </div>
 
       {result && (
         <div className={styles.result}>
-          <h3>計算結果:</h3>
-          <div className={styles.resultItem}>年間コスト: {result.annual.toFixed(2)}</div>
-          <div className={styles.resultItem}>月間コスト: {result.monthly.toFixed(2)}</div>
-          <div className={styles.resultItem}>日ごとのコスト: {result.daily.toFixed(2)}</div>
+          <h3>Calculation Result:</h3>
+          <div className={styles.resultItem}>Annual Cost: {result.annual.toFixed(2)}</div>
+          <div className={styles.resultItem}>Monthly Cost: {result.monthly.toFixed(2)}</div>
+          <div className={styles.resultItem}>Daily Cost: {result.daily.toFixed(2)}</div>
         </div>
       )}
     </div>

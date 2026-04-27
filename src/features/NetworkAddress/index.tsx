@@ -40,7 +40,7 @@ const NetworkAddress: React.FC = () => {
 
       {isValid && result ? (
         <div className={styles.result}>
-          <h3>計算結果</h3>
+          <h3>Results</h3>
           <div className={styles.resultItem}>Network Address: {result.networkAddress}</div>
           <div className={styles.resultItem}>Broadcast Address: {result.broadcastAddress}</div>
           <div className={styles.resultItem}>Number of IPs: {result.numberOfIPs}</div>
@@ -48,7 +48,7 @@ const NetworkAddress: React.FC = () => {
         </div>
       ) : cidr.trim() ? (
         <div className={styles.error}>
-          有効な IP アドレスとサブネットマスクを「192.168.1.0/24」の形式で入力してください。
+          Please enter a valid IP address and subnet mask in the format "192.168.1.0/24".
         </div>
       ) : null}
     </div>

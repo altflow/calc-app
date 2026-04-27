@@ -30,34 +30,34 @@ const PixelPerInch = () => {
 
       <PixelPerInchInput
         id="inches"
-        label="インチ数"
+        label="Inches"
         value={inches}
         onChange={(event) => setInches(event.target.value)}
-        placeholder="例: 13.3"
+        placeholder="e.g., 13.3"
       />
       <PixelPerInchInput
         id="pxWidth"
-        label="横ピクセル数"
+        label="Horizontal Pixel Count"
         value={pxWidth}
         onChange={(event) => setPxWidth(event.target.value)}
-        placeholder="例: 1920"
+        placeholder="e.g., 1920"
       />
       <PixelPerInchInput
         id="pxHeight"
-        label="縦ピクセル数"
+        label="Vertical Pixel Count"
         value={pxHeight}
         onChange={(event) => setPxHeight(event.target.value)}
-        placeholder="例: 1080"
+        placeholder="e.g., 1080"
       />
 
       {ppi !== null ? (
         <div className={styles.result}>
-          <h3>計算結果</h3>
+          <h3>Results</h3>
           <div className={styles.resultItem}>PPI: {ppi.toFixed(3)}</div>
         </div>
       ) : (
         <div className={styles.error}>
-          有効な数値をすべて入力してください。
+          Please enter valid numbers for all fields.
         </div>
       )}
     </div>

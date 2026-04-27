@@ -74,7 +74,7 @@ const AspectRatio = () => {
     <div>
       <h2 className={styles.title}>Aspect Ratio Calculator</h2>
       <div className={styles.field}>
-        <label className={styles.label}>ratioW</label>
+        <label className={styles.label}>Ratio W</label>
         <input
           className={styles.input}
           type="text"
@@ -83,7 +83,7 @@ const AspectRatio = () => {
         />
       </div>
       <div className={styles.field}>
-        <label className={styles.label}>ratioH</label>
+        <label className={styles.label}>Ratio H</label>
         <input
           className={styles.input}
           type="text"
@@ -92,7 +92,7 @@ const AspectRatio = () => {
         />
       </div>
       <div className={styles.field}>
-        <label className={styles.label}>pxWidth</label>
+        <label className={styles.label}>px Width</label>
         <input
           className={styles.input}
           type="text"
@@ -101,7 +101,7 @@ const AspectRatio = () => {
         />
       </div>
       <div className={styles.field}>
-        <label className={styles.label}>pxHeight</label>
+        <label className={styles.label}>px Height</label>
         <input
           className={styles.input}
           type="text"
